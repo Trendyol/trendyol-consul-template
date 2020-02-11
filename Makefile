@@ -6,6 +6,10 @@ ifndef CURRENT_VERSION
   CURRENT_VERSION := 0.0.0
 endif
 
+BUILD_TIME:= $(shell date -u +"%m-%d-%YT%H:%M:%SZ")
+
+VCS_REF :=$(shell git rev-parse --short HEAD)
+
 NEXT_VERSION := $(shell docker run --rm alpine/semver semver -c -i $(RELEASE_TYPE) $(CURRENT_VERSION))
 
 IMAGE ?= $(shell echo trendyoltech/trendyol-consul-template:{{VERSION}} | sed -E "s/{{VERSION}}/$(NEXT_VERSION)/g")
@@ -13,6 +17,8 @@ IMAGE ?= $(shell echo trendyoltech/trendyol-consul-template:{{VERSION}} | sed -E
 .PHONY: current-version next-version build release
 
 current-version:
+	@echo $(BUILD_TIME)
+	@echo $(VCS_REF)
 	@echo $(CURRENT_VERSION)
 
 next-version:
@@ -20,8 +26,8 @@ next-version:
 
 build:
 	@docker image build \
-	--build-arg VCS_REF=`git rev-parse --short HEAD` \
-	--build-arg BUILD_TIME=`date -u +"%m-%d-%YT%H:%M:%SZ"` \
+	--build-arg VCS_REF=$(VCS_REF) \
+	--build-arg BUILD_TIME=$(BUILD_TIME) \
 	--build-arg VERSION=$(NEXT_VERSION) \
 	--tag $(IMAGE) \
 	.

@@ -1,4 +1,8 @@
 FROM alpine
+ARG VCS_REF
+ARG BUILD_TIME
+ARG VERSION
+
 LABEL org.opencontainers.image.authors="trendyoltech" \
 org.opencontainers.image.version=$VERSION \
 org.opencontainers.image.title="Trendyol Consul Template Image" \
@@ -8,9 +12,6 @@ org.opencontainers.image.revision=$VCS_REF \
 org.opencontainers.image.created=$BUILD_TIME \
 org.opencontainers.image.source="https://github.com/Trendyol/trendyol-consul-template"
 
-ARG VCS_REF
-ARG BUILD_TIME
-ARG VERSION
 
 ENV LOGGING_LEVEL=debug
 ENV PACKAGE_VERSION=0.24.1
