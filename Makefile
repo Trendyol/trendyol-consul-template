@@ -8,7 +8,7 @@ endif
 
 NEXT_VERSION := $(shell docker run --rm alpine/semver semver -c -i $(RELEASE_TYPE) $(CURRENT_VERSION))
 
-IMAGE ?= $(shell echo trendyoltech/consul-template:{{VERSION}} | sed -E "s/{{VERSION}}/$(NEXT_VERSION)/g")
+IMAGE ?= $(shell echo trendyoltech/trendyol-consul-template:{{VERSION}} | sed -E "s/{{VERSION}}/$(NEXT_VERSION)/g")
 
 .PHONY: current-version next-version build release
 
