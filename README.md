@@ -25,6 +25,13 @@ This projects is a containerized application of consul-template tool with some m
    "org.opencontainers.image.version": "0.0.1"               
  } 
  ```
+ # Environment Variables (ENV <env_name> » "explanation" [default_value])
+ - ```ENV LOGGING_LEVEL``` » Logging level for consul-template tool. [debug]
+ - ```ENV CONSUL_TEMPLATE_PROCESS_FLAGS``` » The flags for consul-template tool , https://github.com/hashicorp/consul-template#command-line-flags. [""]
+ - ```ENV CONSUL_TEMPLATE_TEMPLATE_PATH``` » The path for input template to generate configuration file for the project. [""]
+ - ```ENV CONSUL_TEMPLATE_OUTPUT_PATH``` » The output path for the generated configuration file from input template. [""]
+ - ```ENV CONSUL_ADDR```  » The connection string to connect a Consul. [""]
+ 
  # Usage (in macOS)
  - Start a new Consul agent in dev mode on your host : ```$ consul agent -dev```
  - Create a working director , for example : ```$ mkdir base```
