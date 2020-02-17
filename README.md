@@ -35,13 +35,13 @@ This projects is a containerized application of consul-template tool with some m
  # Usage (in macOS)
  - Start a new Consul agent in dev mode on your host : ```$ consul agent -dev```
  - Create a working director , for example : ```$ mkdir base```
- - Go to working directory and create a new template file : ```$ echo "hello to : {{ key hello/target  }}" >> init.tpl```
+ - Go to working directory and create a new template file : ```$ echo 'hello to : {{ key "hello/target"  }}' >> init.tpl```
  - Prepare your key's value on Consul K/V Store:  ```$ consul kv put hello/target trendyol```
  - Start your docker container with using volumes to mount init.tpl to container :  <br/>
  ```
  $ docker container run --rm --name trendyol-consul-template \
          -e CONSUL_ADDR=host.docker.internal:8500 \
-         -e CONSUL_TEMPLATE_TEMPLATE_PATH=/conf/init.tpl \ 
+         -e CONSUL_TEMPLATE_TEMPLATE_PATH=/conf/init.tpl \
          -e CONSUL_TEMPLATE_OUTPUT_PATH=/conf/output.txt \
         -v $(pwd):/conf trendyoltech/trendyol-consul-template:latest```
 Then check your output file inside your working directory, you should see "hello to: trendyol" : ```$ cat output.txt```
