@@ -45,7 +45,6 @@ This projects is a containerized application of consul-template tool with some m
          -e CONSUL_TEMPLATE_OUTPUT_PATH=/conf/output.txt \
         -v $(pwd):/conf trendyoltech/trendyol-consul-template:latest```
 Then check your output file inside your working directory, you should see "hello to: trendyol" : ```$ cat output.txt```
-```
 
 # Demo
 [![asciicast](https://asciinema.org/a/sswtXACiztD3wYjQASCMKv8El.png)](https://asciinema.org/a/sswtXACiztD3wYjQASCMKv8El)
