@@ -39,7 +39,7 @@ This projects is a containerized application of consul-template tool with some m
  - Prepare your key's value on Consul K/V Store:  ```$ consul kv put hello/target trendyol```
  - Start your docker container with using volumes to mount init.tpl to container :  <br/>
  ```
- $ docker container run --rm --name trendyol-consul-template \
+ $ docker container run --rm -d --name trendyol-consul-template \
          -e CONSUL_ADDR=host.docker.internal:8500 \
          -e CONSUL_TEMPLATE_TEMPLATE_PATH=/conf/init.tpl \
          -e CONSUL_TEMPLATE_OUTPUT_PATH=/conf/output.txt \
