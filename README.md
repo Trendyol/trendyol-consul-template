@@ -8,8 +8,8 @@ You should install to cli tool to achieve this demo :
 
 # Goal
 This projects is a containerized application of consul-template tool with some modifications. <br/>
- - Checkout consul-template tool at : ```https://github.com/hashicorp/consul-template ````` <br/>
- - Checkout our project at : `````https://github.com/Trendyol/trendyol-consul-template `````
+ - Checkout consul-template tool at : ```https://github.com/hashicorp/consul-template ```<br/>
+ - Checkout our project at : ```https://github.com/Trendyol/trendyol-consul-template ```
 
  When you got your image on your local cache after pull command , you can inspect our images via inspect command and you should see some useful labels that added our image:
  ```docker
